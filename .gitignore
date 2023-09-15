@@ -1,4 +1,5 @@
 __pycache__/
+_ignore/
 
 # Infaltable para el testing.
 asd.*
