@@ -7,3 +7,7 @@
 - Abstracciones para manipular algún framework.
 - Objetos contenedores de datos personalizados.
 - El típico script que tenés anotado en una servilleta y querés tener a mano.
+
+
+##### TODO
+- Abstracción de pathlib y argparse para poder levantar los paths del proyecto.
