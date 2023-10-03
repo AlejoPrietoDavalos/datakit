@@ -15,3 +15,4 @@
 - config = configparser.ConfigParser(interpolation=configparser.ExtendedInterpolation())
 - https://www.ecmwf.int/en/forecasts/datasets
 - https://www.meteored.com.ar/mapas-meteorologicos/
+- https://github.com/luisCartoGeo/GeoAI_Plugin/tree/main
