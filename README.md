@@ -11,3 +11,7 @@
 
 ##### TODO
 - Abstracción de pathlib y argparse para poder levantar los paths del proyecto.
+- VER: https://pypi.org/project/zc.buildout/ lo ví en:
+- config = configparser.ConfigParser(interpolation=configparser.ExtendedInterpolation())
+- https://www.ecmwf.int/en/forecasts/datasets
+- https://www.meteored.com.ar/mapas-meteorologicos/
