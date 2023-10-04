@@ -1,8 +1,5 @@
-""" Emprolijar, gpteado.
-- TODO: Se me ocurre poner unos validadores con `attr`.
-- Me gusta el __str__ y repr, quizas usar el de attr, ver como queda.
-- También ver la estructura base, preprocess y processed me parece que
-está bueno depende que proyecto.
+"""
+- Ver la estructura base, preprocess y processed me parece que está bueno depende que proyecto.
 - Quizás hacer un `ABC` para características que tengan todos los
 proyectos de data sciente en general, y después si querés hacer algo rápido,
 para ver un resultado por que estás scripteando, que también haya una clase

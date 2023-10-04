@@ -16,3 +16,6 @@
 - https://www.ecmwf.int/en/forecasts/datasets
 - https://www.meteored.com.ar/mapas-meteorologicos/
 - https://github.com/luisCartoGeo/GeoAI_Plugin/tree/main
+
+
+- Idea: Generar un yield con with de raster para poder abrir N rasters cerrandose al final con el src
