@@ -1,6 +1,7 @@
 __pycache__/
 _ignore/
 env/
+data/
 
 # Infaltable para el testing.
 asd.*
