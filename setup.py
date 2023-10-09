@@ -8,6 +8,6 @@ setup(
         "numpy==1.26.0",
         "pydantic==2.4.2",
         "matplotlib==3.8.0",
-
+        "rasterio==1.3.8",
     ],
 )
