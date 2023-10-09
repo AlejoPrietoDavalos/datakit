@@ -1,1 +1,1 @@
-from .mosaic import *
+from .mosaic_gen import *

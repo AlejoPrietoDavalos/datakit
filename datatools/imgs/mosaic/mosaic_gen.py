@@ -3,7 +3,7 @@
 - TODO: Se me ocurre una para imagenes generales y otra para rasters.
 """
 from __future__ import annotations
-__all__ = ["MosaicGenerator", "MosaicRaster"]
+#__all__ = ["MosaicGenerator", "MosaicRaster"]
 
 import rasterio
 from rasterio import DatasetReader
@@ -15,7 +15,7 @@ from pydantic import BaseModel, ConfigDict
 
 
 class MosaicRaster(BaseModel):
-    
+    asd: int
     @property
     def width(self) -> int:
         return
@@ -24,10 +24,9 @@ class MosaicRaster(BaseModel):
         pass
 
 
-class MosaicGenerator:
-    """ TODO: Con diferentes modos de generación, tiles de igual tamaño o de tamaño definido."""
-    def __init__(self, path_raster: Path, path_folder_out: Path):
-        self.raster: DatasetReader = rasterio.open(path_raster)
-        self.path_folder_out = path_folder_out
+#class MosaicGenerator(BaseModel):
+#    """ TODO: Con diferentes modos de generación, tiles de igual tamaño o de tamaño definido."""
+#    raster: DatasetReader
+    #self.path_folder_out = path_folder_out
     
     #def 
