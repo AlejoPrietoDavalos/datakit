@@ -6,4 +6,4 @@ data/
 .vscode/
 
 # Infaltable para el testing.
-asd.*
+asd*
