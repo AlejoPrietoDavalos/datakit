@@ -26,6 +26,7 @@ class MosaicConfig(BaseModel):
     tile_height: int
 
 
+
 def mosaic2tiles(conf: MosaicConfig):
     conf.output_folder.mkdir(exist_ok=True)
 
@@ -36,6 +37,9 @@ def mosaic2tiles(conf: MosaicConfig):
 
         for i, h in enumerate(range(0, total_height, conf.tile_height)):
             for j, w in enumerate(range(0, total_width, conf.tile_width)):
+
+
+                # Esta parte recorta.
                 window = Window(
                     col_off = w,
                     row_off = h,
@@ -51,6 +55,7 @@ def mosaic2tiles(conf: MosaicConfig):
                 
                 with rasterio.open(output_path, 'w', **meta) as dst:
                     dst.write(raster_mosaic.read(window=window))
+                # Esta parte recorta.
 
 
 
