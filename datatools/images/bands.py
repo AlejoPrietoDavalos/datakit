@@ -13,11 +13,7 @@ from pydantic import field_validator
 _RGB_BANDS = ("red", "green", "blue")
 
 
-class BandsBase(BaseModelValAssign, ABC):
-    pass
-
-
-class BandsRGB(BandsBase):
+class BandsRGB(BaseModelValAssign):
     """ TODO: Poner condicional de len(shape)==2."""
     red: T_NDArray
     green: T_NDArray
