@@ -4,7 +4,7 @@ __all__ = ["WindowImg"]
 
 from datatools.pydantic_base import BaseModelValAssign
 
-from pydantic import PositiveInt
+from pydantic import NonNegativeInt
 
 from rasterio.windows import Window
 
@@ -12,10 +12,10 @@ from rasterio.windows import Window
 class WindowImg(BaseModelValAssign):
     """ Rectángulo dentro de una imagen.
     - TODO: Remarcar si agrega o no los bordes."""
-    i: PositiveInt
-    j: PositiveInt
-    height: PositiveInt
-    width: PositiveInt
+    i: NonNegativeInt
+    j: NonNegativeInt
+    height: NonNegativeInt
+    width: NonNegativeInt
 
     @property
     def rasterio_window(self) -> Window:
