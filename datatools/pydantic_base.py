@@ -1,4 +1,6 @@
 """ Clases base de pydantic para usar dentro del módulo."""
+__all__ = ["BaseModelValAssign"]
+
 from pydantic import BaseModel, ConfigDict
 
 class BaseModelValAssign(BaseModel):
