@@ -3,7 +3,7 @@ _ignore/
 env/
 data/
 .data/
-.vscode
+.vscode/
 
 # Infaltable para el testing.
 asd.*
