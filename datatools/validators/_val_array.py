@@ -7,4 +7,4 @@ def is_ndarray_2D(arr: np.ndarray) -> bool:
 
 def assert_ndarray_2D(arr: np.ndarray) -> None:
     if not is_ndarray_2D(arr):
-        return ValueError("Debe ser un `np.ndarray` de dimención 2.")
+        raise ValueError("Debe ser un `np.ndarray` de dimención 2.")
