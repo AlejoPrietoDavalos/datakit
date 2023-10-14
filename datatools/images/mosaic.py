@@ -26,6 +26,10 @@ class MosaicConfig(BaseModel):
     tile_height: int
 
 
+def cut_raster():
+    pass
+
+
 
 def mosaic2tiles(conf: MosaicConfig):
     conf.output_folder.mkdir(exist_ok=True)
