@@ -9,6 +9,9 @@ setup(
         "pydantic==2.4.2",
         "matplotlib==3.8.0",
         "rasterio==1.3.8",
-        "multipledispatch==1.0.0"
+        "multipledispatch==1.0.0",
+        "pydantic==2.5.2",
+        "torch",
+        "torchvision",
     ],
 )
