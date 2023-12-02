@@ -1,9 +1,9 @@
-from datatools.dl.fn_act import FnAct
+from datakit.dl.fn_act import FnAct
 
 from pydantic import BaseModel, Field, ConfigDict
 from abc import ABC, abstractproperty
 
-from datatools.dl.common_types import T_Dump
+from datakit.dl.common_types import T_Dump
 from typing import List
 
 __all__ = ["CfgModuleBase", "CfgModule"]

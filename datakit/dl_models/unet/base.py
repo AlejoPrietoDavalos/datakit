@@ -2,9 +2,9 @@
 from torch import Tensor, nn
 import torch.nn.functional as F
 
-from datatools.dl_models.utils import iter_pairs_chann
-from datatools.dl_models.unet.config import UNETConfig
-from datatools.dl_models.some_layers import (
+from datakit.dl_models.utils import iter_pairs_chann
+from datakit.dl_models.unet.config import UNETConfig
+from datakit.dl_models.some_layers import (
     Conv2DParams, MaxPool2dParams,
     DoubleConvPool, DoubleConvUpsampling,
     DoubleConv, conv2d

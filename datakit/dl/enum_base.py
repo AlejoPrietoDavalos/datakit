@@ -1,5 +1,5 @@
 
-from enum import Enum, StrEnum, EnumType
+from enum import Enum, StrEnum
 from typing import TypeVar, Tuple, Type, Generator, Any
 
 T = TypeVar("T")

@@ -2,7 +2,7 @@
 from __future__ import annotations
 __all__ = ["WindowImg"]
 
-from datatools.pydantic_base import BaseModelValAssign
+from datakit.pydantic_base import BaseModelValAssign
 
 from pydantic import NonNegativeInt
 

@@ -1,5 +1,5 @@
 __all__ = ["AbstractImg"]
-from datatools.pydantic_base import BaseModelValAssign
+from datakit.pydantic_base import BaseModelValAssign
 
 from abc import ABC, abstractproperty
 

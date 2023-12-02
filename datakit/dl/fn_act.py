@@ -1,4 +1,4 @@
-from datatools.dl.enum_base import EnumIter, StrEnumIter
+from datakit.dl.enum_base import EnumIter, StrEnumIter
 
 from torch import nn
 
@@ -11,7 +11,7 @@ from typing import Type
 __all__ = ["FnAct", "FnActNameEnum", "FnActModuleEnum", "FnActHandler"]
 
 FN_ACT_NAME = "name"
-FN_ACT_ARGS = "args"
+FN_ACT_AR00GS = "args"
 
 
 class FnActNameEnum(StrEnumIter):

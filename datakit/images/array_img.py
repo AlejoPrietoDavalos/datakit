@@ -1,7 +1,8 @@
 __all__ = ["ArrayImg"]
 
-from datatools.images.abc import AbstractImg
-from datatools.validators import assert_ndarray_2D
+import datakit as dk
+from datakit.images.abc import AbstractImg
+from datakit.validators import assert_ndarray_2D
 
 from pydantic import field_validator
 

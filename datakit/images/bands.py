@@ -1,9 +1,9 @@
 """ FIXME: Ver si se puede desacoplar el @field_validator y hacerlo genérico."""
 __all__ = ["BandsRGB", "BandsRGBNir"]
-from datatools.pydantic_base import BaseModelValAssign
-from datatools.validators import assert_ndarray_2D
-from datatools.rasters import RGBArr
-from datatools import T_NDArray
+from datakit.pydantic_base import BaseModelValAssign
+from datakit.validators import assert_ndarray_2D
+from datakit.rasters import RGBArr
+from datakit import T_NDArray
 
 from abc import ABC
 

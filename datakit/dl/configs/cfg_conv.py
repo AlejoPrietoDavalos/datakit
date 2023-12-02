@@ -1,4 +1,4 @@
-from datatools.dl.configs import CfgModuleBase
+from datakit.dl.configs import CfgModuleBase
 
 from torch.nn.common_types import _size_2_t
 from pydantic import NonNegativeInt

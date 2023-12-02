@@ -1,4 +1,4 @@
-from datatools.dl.fn_act import FnAct,FnActNameEnum, FnActModuleEnum
+from datakit.dl.fn_act import FnAct,FnActNameEnum, FnActModuleEnum
 
 from torch import nn
 

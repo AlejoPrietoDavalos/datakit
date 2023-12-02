@@ -1,7 +1,7 @@
 import pytest
 
-from datatools.dl.configs import CfgModuleBase, CfgModule
-from datatools.dl.fn_act import FnActNameEnum, FN_ACT_NAME
+from datakit.dl.configs import CfgModuleBase, CfgModule
+from datakit.dl.fn_act import FnActNameEnum, FN_ACT_NAME
 
 from torch import nn
 
