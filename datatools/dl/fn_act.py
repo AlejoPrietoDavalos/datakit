@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field, ConfigDict
 
 from functools import cached_property
 from enum import auto
-from typing import Type, Generator, Tuple
+from typing import Type
 
 __all__ = ["FnAct", "FnActNameEnum", "FnActModuleEnum", "FnActHandler"]
 

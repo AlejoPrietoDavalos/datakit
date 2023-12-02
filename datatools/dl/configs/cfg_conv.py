@@ -1,6 +1,6 @@
 from datatools.dl.configs import CfgModuleBase
 
-from datatools.dl.common_types import _size_2_t
+from torch.nn.common_types import _size_2_t
 
 
 class CfgConv2d(CfgModuleBase):
