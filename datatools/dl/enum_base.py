@@ -1,5 +1,5 @@
 
-from enum import Enum, StrEnum
+from enum import Enum, StrEnum, EnumType
 from typing import TypeVar, Tuple, Type, Generator, Any
 
 T = TypeVar("T")
@@ -22,17 +22,20 @@ def iter_name_value_enum(enum: Type[Enum]) -> gen_name_value_enum:
 
 class BaseEnumIterMethods:
     @classmethod
-    def iter_name_value_enum(cls) -> Generator[_tuple_2_t, None, None]:
+    def iter_name_value_enum(cls) -> gen_name_value_enum:
         return ((name, value) for name, value in iter_name_value_enum(cls))
 
     @classmethod
-    def iter_name_enum(cls) -> Generator[str, None, None]:
+    def iter_name_enum(cls) -> gen_name_enum:
         return (name for name, _ in cls.iter_name_value_enum())
 
     @classmethod
-    def iter_value_enum(cls) -> Generator[Any, None, None]:
+    def iter_value_enum(cls) -> gen_value_enum:
         return (value for _, value in cls.iter_name_value_enum())
 
+    @classmethod
+    def name2value(cls: Type[Enum], name: str) -> _value_enum:
+        return cls[name].value
 
 class EnumIter(BaseEnumIterMethods, Enum):
     pass
@@ -40,33 +43,3 @@ class EnumIter(BaseEnumIterMethods, Enum):
 
 class StrEnumIter(BaseEnumIterMethods, StrEnum):
     pass
-
-
-'''
-class EnumIter(Enum):
-    @classmethod
-    def iter_name_value_enum(cls) -> Generator[_tuple_2_t, None, None]:
-        return ((name, enum.value) for name, enum in cls.__members__.items())
-
-    @classmethod
-    def iter_name_enum(cls: Type[Enum]) -> Generator[str, None, None]:
-        return (name for name, _ in iter_name_enum(cls))
-
-    @classmethod
-    def iter_value_enum(cls: Type[Enum]) -> Generator[Any, None, None]:
-        return (value for _, value in iter_value_enum(cls))
-
-class StrEnumIter(StrEnum):
-    @classmethod
-    def iter_name_value_enum(cls) -> Generator[_tuple_2_t, None, None]:
-        return ((name, enum.value) for name, enum in cls.__members__.items())
-
-    @classmethod
-    def iter_name_enum(cls: Type[Enum]) -> Generator[str, None, None]:
-        return (name for name, _ in iter_name_enum(cls))
-
-    @classmethod
-    def iter_value_enum(cls: Type[Enum]) -> Generator[Any, None, None]:
-        return (value for _, value in iter_value_enum(cls))
-
-'''

@@ -49,7 +49,7 @@ class FnActModuleEnum(EnumIter):
     def get_module_cls(cls, name: str) -> Type[nn.Module]:
         """ Retorna la función de activación según su nombre."""
         FnActNameEnum.validate_name(name)
-        return cls[name].value
+        return cls.name2value(name)
 
 
 class FnAct(BaseModel):
