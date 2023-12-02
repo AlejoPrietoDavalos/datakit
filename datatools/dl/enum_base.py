@@ -1,5 +1,5 @@
 
-from enum import Enum, StrEnum, EnumType
+from enum import Enum, StrEnum
 from typing import TypeVar, Tuple, Type, Generator, Any
 
 T = TypeVar("T")
@@ -8,14 +8,15 @@ _tuple_2_t = Tuple[T, K]
 
 _name_enum, _value_enum = str, Any
 _name_value_enum = _tuple_2_t[_name_enum, _value_enum]
-_gen_name_value_enum = Generator[_name_value_enum, None, None]
-_gen_name_enum = Generator[_name_enum, None, None]
-_gen_value_enum = Generator[_value_enum, None, None]
+
+gen_name_value_enum = Generator[_name_value_enum, None, None]
+gen_name_enum = Generator[_name_enum, None, None]
+gen_value_enum = Generator[_value_enum, None, None]
 
 
 
 # Esto se podría hacer con herencia.
-def iter_name_value_enum(enum: Type[Enum]) -> _gen_name_value_enum:
+def iter_name_value_enum(enum: Type[Enum]) -> gen_name_value_enum:
     return ((name, enum.value) for name, enum in enum.__members__.items())
 
 

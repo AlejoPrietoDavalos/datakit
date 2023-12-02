@@ -1,17 +1,13 @@
-from datatools.dl.fn_act import (
-    FnAct,FnActNameEnum, FnActModuleEnum,
-    FnActHandler, FN_ACT_NAME)
-from datatools.dl.enum_base import iter_name_value_enum, iter_value_enum
+from datatools.dl.fn_act import FnAct,FnActNameEnum, FnActModuleEnum, FN_ACT_NAME
 
 from torch import nn
 
 from typing import Type
-
 import pytest
 
 
 class TestFnActNameEnum:
-    @pytest.mark.parametrize(["name", "value"], iter_name_value_enum(FnActNameEnum))
+    @pytest.mark.parametrize(["name", "value"], FnActNameEnum.iter_name_value_enum())
     def test_name_values_same_str(self, name: str, value: str) -> None:
         assert name==value, "El nombre y el valor deben ser iguales y minúscula."
 
@@ -20,7 +16,7 @@ class TestFnActNameEnum:
 
 
 class TestFnActModuleEnum:
-    @pytest.mark.parametrize("module_cls", FnActModuleEnum.iter_module_cls())
+    @pytest.mark.parametrize("module_cls", FnActModuleEnum.iter_value_enum())
     def test_moodule_default(self, module_cls: Type[nn.Module]) -> None:
         module_default = module_cls()
         assert isinstance(module_default, nn.Module)
@@ -42,12 +38,12 @@ def fn_act_default() -> FnAct:
     return FnAct()
 
 class TestFnAct:
-    @pytest.mark.parametrize(FN_ACT_NAME, iter_value_enum(FnActNameEnum))
+    @pytest.mark.parametrize(FN_ACT_NAME, FnActNameEnum.iter_value_enum())
     def test_name(self, name: str) -> None:
         fn_act = FnAct(name=name)
         assert fn_act.name in FnActNameEnum.__members__.values()
 
-    @pytest.mark.parametrize(FN_ACT_NAME, iter_value_enum(FnActNameEnum))
+    @pytest.mark.parametrize(FN_ACT_NAME, FnActNameEnum.iter_value_enum())
     def test_module(self, name: str) -> None:
         fn_act = FnAct(name=name)
         assert isinstance(fn_act.module, nn.Module)
