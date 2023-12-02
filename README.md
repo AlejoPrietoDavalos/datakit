@@ -1,6 +1,48 @@
 ## Data Science Toolkit (super alpha)
 - Sentite libre de chorear o aportar cualquier contenido.
 
+
+# Notas:
+### Como estructurar el código
+- Arquitectura `base del modelo`, debe contener únicamente el `modelo a entrenar`.
+- Debe traer de `modules` las capas que necesite.
+```markdown
+├── dl
+│   ├── ...
+│   ├── models
+│   │   ├── name_model_1
+│   │   │   └── base_name_model_1.py
+│   │   ├── name_model_2
+│   │   │   └── base_name_model_2.py
+│   │   └── name_model_3
+│   │       └── base_name_model_3.py
+```
+
+
+- Contiene los `nn.Module` necesarios para crear las distintas redes.
+```markdown
+├── dl
+│   ├── ...
+│   ├── modules
+│   │   ├── module_1.py
+│   │   ├── module_2.py
+│   │   └── module_3.py
+```
+
+
+- Si hubiera un módulo que sirva de `backbone`, se debería introducir aquí.
+```markdown
+├── dl
+│   ├── ...
+│   ├── backbones
+│   │   ├── backbone_1.py
+│   │   ├── backbone_2.py
+│   │   └── backbone_3.py
+```
+
+
+
+
 #### Que encontrarás en este repositorio:
 - Pequeños módulos que resuelvan problemáticas de `data science`.
 - Modelitos de `Deep Learning`.
