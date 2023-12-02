@@ -1,30 +1,37 @@
-from datatools.dl.fn_act import FnActHandler, FnActEnum, exclude_fn_act
+from datatools.dl.fn_act import FnAct
+
 from pydantic import BaseModel, Field, ConfigDict
-from abc import ABC
+from abc import ABC, abstractproperty
+
+from datatools.dl.common_types import T_Dump
+from typing import List
 
 __all__ = ["CfgModuleBase", "CfgModule"]
 
 
-class CfgModuleBase(BaseModel, ABC):
-    model_config = ConfigDict(validate_assignment=True, use_enum_values=True)
-    @property
-    def exclude(self) -> list:
+class _CfgModuleBase(BaseModel, ABC):
+    model_config = ConfigDict(validate_assignment=True, frozen=True)
+
+    @abstractproperty
+    def exclude_module_dump(self) -> List[str]:
         """ Elementos a ignorar dentro de `module_dump`."""
+        ...
+
+    def module_dump(self) -> T_Dump:
+        """ Utilizar para instanciar los módulos."""
+        return self.model_dump(exclude=self.exclude_module_dump)
+
+
+class CfgModuleBase(_CfgModuleBase, ABC):
+    @property
+    def exclude_module_dump(self) -> List[str]:
         return []
-    
-    def module_dump(self) -> dict:
-        return self.model_dump(exclude=self.exclude)
 
 
 class CfgModule(CfgModuleBase, ABC):
     """ Abstract Config Module."""
-    fn_act_name: FnActEnum = Field(default=FnActEnum.RELU.value)
-    fn_act_args: dict = Field(default_factory=dict)
-    
-    @property
-    def fn_act(self):
-        return FnActHandler.get_fn_act(self.fn_act_name, self.fn_act_args)
+    fn_act: FnAct = Field(default_factory=FnAct)
 
     @property
-    def exclude(self) -> list:
-        return exclude_fn_act()
+    def exclude_module_dump(self) -> List[str]:
+        return ["fn_act"]
