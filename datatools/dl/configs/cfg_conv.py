@@ -1,11 +1,12 @@
 from datatools.dl.configs import CfgModuleBase
 
 from torch.nn.common_types import _size_2_t
+from pydantic import NonNegativeInt
 
 
 class CfgConv2d(CfgModuleBase):
-    in_channels: int
-    out_channels: int
+    in_channels: NonNegativeInt
+    out_channels: NonNegativeInt
     kernel_size: _size_2_t
     stride: _size_2_t = 1
     padding: _size_2_t | str = 0
