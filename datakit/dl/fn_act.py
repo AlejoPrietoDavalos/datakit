@@ -1,4 +1,4 @@
-from datakit.dl.enum_base import EnumIter, StrEnumIter
+from datakit.enum_base import EnumIter, StrEnumIter
 
 from torch import nn
 
@@ -8,10 +8,7 @@ from functools import cached_property
 from enum import auto
 from typing import Type
 
-__all__ = ["FnAct", "FnActNameEnum", "FnActModuleEnum", "FnActHandler"]
-
-FN_ACT_NAME = "name"
-FN_ACT_ARGS = "args"
+__all__ = ["FnActNameEnum", "FnActModuleEnum", "FnAct"]
 
 
 class FnActNameEnum(StrEnumIter):
@@ -53,7 +50,7 @@ class FnActModuleEnum(EnumIter):
 
 
 class FnAct(BaseModel):
-    model_config = ConfigDict(validate_assignment=True, use_enum_values=True)
+    model_config = ConfigDict(validate_assignment=True, use_enum_values=True, frozen=True)
     name: FnActNameEnum = Field(default=FnActNameEnum.default_fn_act_name())
     args: dict = Field(default_factory=dict)
 
