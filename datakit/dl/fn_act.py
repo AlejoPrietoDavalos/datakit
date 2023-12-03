@@ -11,7 +11,7 @@ from typing import Type
 __all__ = ["FnAct", "FnActNameEnum", "FnActModuleEnum", "FnActHandler"]
 
 FN_ACT_NAME = "name"
-FN_ACT_AR00GS = "args"
+FN_ACT_ARGS = "args"
 
 
 class FnActNameEnum(StrEnumIter):

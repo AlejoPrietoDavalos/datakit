@@ -1,2 +1,2 @@
-from .cfg_module import *
-from .cfg_conv import *
+from datakit.dl.configs.cfg_module import CfgModuleDumpable, CfgModule
+from datakit.dl.configs.cfg_conv import CfgConv2d

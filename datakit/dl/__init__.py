@@ -1,2 +1,1 @@
-from .configs import CfgModuleBase, CfgModule, CfgConv2d
-from .common_types import T_Dump
+from datakit.dl.fn_act import FnAct, FnActNameEnum, FnActModuleEnum

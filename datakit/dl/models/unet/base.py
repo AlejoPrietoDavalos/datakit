@@ -1,15 +1,13 @@
 """ U-NET Model, semantic segmentation. https://arxiv.org/pdf/1505.04597.pdf"""
 from torch import Tensor, nn
 import torch.nn.functional as F
-
-from datakit.dl_models.utils import iter_pairs_chann
-from datakit.dl_models.unet.config import UNETConfig
-from datakit.dl_models.some_layers import (
+from datakit.dl.models.unet.utils import iter_pairs_chann
+from datakit.dl.models.unet.config import UNETConfig
+from datakit.dl.models.unet.some_layers import (
     Conv2DParams, MaxPool2dParams,
     DoubleConvPool, DoubleConvUpsampling,
     DoubleConv, conv2d
 )
-
 from typing import List, Tuple
 
 

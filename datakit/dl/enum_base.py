@@ -1,4 +1,3 @@
-
 from enum import Enum, StrEnum
 from typing import TypeVar, Tuple, Type, Generator, Any
 
