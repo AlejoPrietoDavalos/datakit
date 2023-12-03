@@ -1,6 +1,9 @@
 from enum import Enum, StrEnum
 from typing import TypeVar, Tuple, Type, Generator, Any
 
+__all__ = ["EnumIter", "StrEnumIter"]
+
+
 T = TypeVar("T")
 K = TypeVar("K")
 _tuple_2_t = Tuple[T, K]
@@ -14,12 +17,11 @@ gen_value_enum = Generator[_value_enum, None, None]
 
 
 
-# Esto se podría hacer con herencia.
 def iter_name_value_enum(enum: Type[Enum]) -> gen_name_value_enum:
     return ((name, enum.value) for name, enum in enum.__members__.items())
 
 
-class BaseEnumIterMethods:
+class _BaseEnumIterMethods:
     @classmethod
     def iter_name_value_enum(cls) -> gen_name_value_enum:
         return ((name, value) for name, value in iter_name_value_enum(cls))
@@ -36,9 +38,9 @@ class BaseEnumIterMethods:
     def name2value(cls: Type[Enum], name: str) -> _value_enum:
         return cls[name].value
 
-class EnumIter(BaseEnumIterMethods, Enum):
+class EnumIter(_BaseEnumIterMethods, Enum):
     pass
 
 
-class StrEnumIter(BaseEnumIterMethods, StrEnum):
+class StrEnumIter(_BaseEnumIterMethods, StrEnum):
     pass
