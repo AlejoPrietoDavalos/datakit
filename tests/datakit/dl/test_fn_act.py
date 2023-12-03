@@ -11,32 +11,33 @@ class TestFnActNameEnum:
             assert name==value, "El nombre y el valor deben ser iguales y minúscula."
 
     def test_default_name(self) -> None:
-        pass
+        default_name = FnActNameEnum.default_fn_act_name()
+        FnActNameEnum.validate_name(default_name)
 
 
 class TestFnActModuleEnum:
-    def test_moodule_default(self) -> None:
-        for module_cls in FnActModuleEnum.iter_value_enum():
+    def test_default_module(self) -> None:
+        for name in FnActNameEnum.iter_name_enum():
+            module_cls = FnActModuleEnum.get_module_cls(name)
             module_default = module_cls()
             assert isinstance(module_default, nn.Module)
 
 
-@pytest.fixture
-def fn_act_default() -> FnAct:
-    return FnAct()
-
 class TestFnAct:
+    def test_default(self) -> None:
+        fn_act_default = FnAct()
+        assert len(fn_act_default.args) == 0
+        FnActNameEnum.validate_name(fn_act_default.name)
+    
     def test_name(self) -> None:
-        for name in FnActNameEnum.iter_value_enum():
+        for name in FnActNameEnum.iter_name_enum():
             fn_act = FnAct(name=name)
-            FnActNameEnum.validate_name(name)
+            FnActNameEnum.validate_name(fn_act.name)
 
     def test_module(self) -> None:
         for name in FnActNameEnum.iter_value_enum():
             fn_act = FnAct(name=name)
             assert isinstance(fn_act.module, nn.Module)
 
-    def test_default(self, fn_act_default: FnAct) -> None:
-        assert len(fn_act_default.args) == 0
 
 
