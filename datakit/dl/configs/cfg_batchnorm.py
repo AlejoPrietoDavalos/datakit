@@ -1,12 +1,15 @@
 from .cfg_module import CfgModuleDumpable
 from torch import nn
 
+from pydantic import PositiveFloat
 from typing import Type
+
+__all__ = ["CfgBatchNorm2d"]
 
 class CfgBatchNorm2d(CfgModuleDumpable):
     num_features: int
-    eps: float = 1e-5
-    momentum: float = 0.1
+    eps: PositiveFloat = 1e-5
+    momentum: PositiveFloat = 0.1
     affine: bool = True
     track_running_stats: bool = True
 
