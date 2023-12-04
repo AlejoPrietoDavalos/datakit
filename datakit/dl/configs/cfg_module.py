@@ -4,15 +4,24 @@ from torch import nn
 
 from pydantic import BaseModel, Field, ConfigDict
 from abc import ABC, abstractproperty
-from typing import Type, List, Dict, Any
+from datakit.dl.common_types import T_Module, T_ModuleDump
+from typing import List
 
 __all__ = ["CfgModuleDumpable", "CfgModule"]
-
-T_Dump = Dict[str, Any]
 
 
 class _CfgModuleBase(BaseModel, ABC):
     model_config = ConfigDict(validate_assignment=True, use_enum_values=True, frozen=True)
+
+    @abstractproperty
+    def module_cls(self) -> T_Module:
+        """ Debe retornar la clase que usará para instanciar."""
+        ...
+    
+    @abstractproperty
+    def module(self) -> nn.Module:
+        """ Instancia el módulo asociado a esta configuración."""
+        ...
 
 
 class CfgModuleDumpable(_CfgModuleBase, ABC):
@@ -23,15 +32,9 @@ class CfgModuleDumpable(_CfgModuleBase, ABC):
 
     @property
     def module(self) -> nn.Module:
-        """ Instancia el modelo asociado a esta configuración."""
         return self.module_cls(**self.module_dump())
-    
-    @abstractproperty
-    def module_cls(self) -> Type[nn.Module]:
-        """ Debe retornar la clase que usará para instanciar."""
-        ...
-    
-    def module_dump(self) -> T_Dump:
+
+    def module_dump(self) -> T_ModuleDump:
         """ Utilizar para instanciar los módulos."""
         return self.model_dump(exclude=self.exclude_module_dump)
 
