@@ -12,7 +12,7 @@ T_Dump = Dict[str, Any]
 
 
 class _CfgModuleBase(BaseModel, ABC):
-    model_config = ConfigDict(validate_assignment=True, frozen=True)
+    model_config = ConfigDict(validate_assignment=True, use_enum_values=True, frozen=True)
 
 
 class CfgModuleDumpable(_CfgModuleBase, ABC):
