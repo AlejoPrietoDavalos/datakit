@@ -4,7 +4,7 @@ from torch import nn
 
 from pydantic import BaseModel, Field, ConfigDict
 from abc import ABC, abstractproperty
-from typing import Generic, TypeVar, Type, List, Dict, Any
+from typing import Type, List, Dict, Any
 
 __all__ = ["CfgModuleDumpable", "CfgModule"]
 
@@ -20,7 +20,7 @@ class CfgModuleDumpable(_CfgModuleBase, ABC):
     def exclude_module_dump(self) -> List[str]:
         """ Elementos a ignorar dentro de `module_dump`."""
         return []
-    
+
     @property
     def module(self) -> nn.Module:
         """ Instancia el modelo asociado a esta configuración."""
