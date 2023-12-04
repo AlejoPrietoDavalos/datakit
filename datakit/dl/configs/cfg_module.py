@@ -15,7 +15,7 @@ class _CfgModuleBase(BaseModel, ABC):
 
     @abstractproperty
     def module_cls(self) -> T_Module:
-        """ Debe retornar la clase que usará para instanciar."""
+        """ Retorna la clase a usar para instanciar el módulo."""
         ...
     
     @abstractproperty
@@ -25,18 +25,24 @@ class _CfgModuleBase(BaseModel, ABC):
 
 
 class CfgModuleDumpable(_CfgModuleBase, ABC):
-    @property
-    def exclude_module_dump(self) -> List[str]:
-        """ Elementos a ignorar dentro de `module_dump`."""
-        return []
+    @abstractproperty
+    def module_cls(self) -> T_Module:
+        ...
 
     @property
     def module(self) -> nn.Module:
         return self.module_cls(**self.module_dump())
+    
+    @property
+    def exclude(self) -> List[str]:
+        """ Elementos a ignorar dentro de `module_dump`.
+        - FIXME: Todavía no lo usé realmente, vale la pena conservarlo?
+        """
+        return []
 
     def module_dump(self) -> T_ModuleDump:
         """ Utilizar para instanciar los módulos."""
-        return self.model_dump(exclude=self.exclude_module_dump)
+        return self.model_dump(exclude=self.exclude)
 
 
 class CfgModule(_CfgModuleBase):
