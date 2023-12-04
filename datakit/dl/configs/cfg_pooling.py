@@ -1,4 +1,4 @@
-from datakit.dl.configs.cfg_module import CfgModuleDumpable
+from .cfg_module import CfgModuleDumpable
 from datakit.dl.common_types import _size_any_t
 
 from torch import nn
