@@ -4,8 +4,8 @@ from torch import nn
 
 from pydantic import BaseModel, Field, ConfigDict
 
-from functools import cached_property
 from enum import auto
+from datakit.dl.common_types import T_Module
 from typing import Type
 
 __all__ = ["FnActNameEnum", "FnActModuleEnum", "FnAct"]
@@ -43,7 +43,7 @@ class FnActModuleEnum(EnumIter):
     mish = nn.Mish
 
     @classmethod
-    def get_module_cls(cls, name: str) -> Type[nn.Module]:
+    def get_module_cls(cls, name: str) -> T_Module:
         """ Retorna la función de activación según su nombre."""
         FnActNameEnum.validate_name(name)
         return cls.name2value(name)
@@ -54,7 +54,7 @@ class FnAct(BaseModel):
     name: FnActNameEnum = Field(default=FnActNameEnum.default_fn_act_name())
     args: dict = Field(default_factory=dict)
 
-    @cached_property
+    @property
     def module(self) -> nn.Module:
         """ Retorna el módulo asociado a la función de activación `name`."""
         module_cls = FnActModuleEnum.get_module_cls(self.name)
