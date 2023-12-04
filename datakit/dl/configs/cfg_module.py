@@ -19,7 +19,7 @@ class _CfgModuleBase(BaseModel, ABC):
         ...
     
     @abstractproperty
-    def module(self) -> nn.Module:
+    def module(self) -> nn.Module: # TODO: Ver si es posible que haga referencia al módulo dentro de `module_cls`.
         """ Instancia el módulo asociado a esta configuración."""
         ...
 
