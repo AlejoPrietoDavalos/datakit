@@ -1,5 +1,5 @@
 """ TODO: Testear los parámetros."""
-from datakit.dl.configs import CfgConv2d
+from datakit.dl.configs.nn_torch import CfgConv2d
 from .test_cfg_common import assert_module_create
 
 

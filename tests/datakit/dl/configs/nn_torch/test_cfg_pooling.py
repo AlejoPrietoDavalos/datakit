@@ -1,4 +1,4 @@
-from datakit.dl.configs import CfgMaxPool2d
+from datakit.dl.configs.nn_torch import CfgMaxPool2d
 from .test_cfg_common import assert_module_create
 
 class TestCfgMaxPool2d:

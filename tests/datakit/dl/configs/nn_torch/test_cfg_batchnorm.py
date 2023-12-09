@@ -1,4 +1,4 @@
-from datakit.dl.configs import CfgBatchNorm2d
+from datakit.dl.configs.nn_torch import CfgBatchNorm2d
 
 from .test_cfg_common import assert_module_create
 

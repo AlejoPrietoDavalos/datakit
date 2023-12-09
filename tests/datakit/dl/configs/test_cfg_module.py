@@ -1,4 +1,4 @@
-from datakit.dl.configs import CfgModuleDumpable, CfgModule
+from datakit.dl.configs import CfgModuleDump, CfgModule
 
 from torch import nn
 
