@@ -1,6 +1,8 @@
 import numpy as np
 from numpy import ndarray
 
+__all__ = ["safe_divide", "norm_diff_index"]
+
 def safe_divide(numerator: ndarray, denominator: ndarray, default_value=0) -> ndarray:
     """ División de arrays controlando la división por 0.
     - `default_value:` Valor por default cuando se divide por 0."""

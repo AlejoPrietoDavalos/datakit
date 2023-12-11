@@ -1,6 +1,7 @@
 from datakit.gis.indexes.common_calcs import norm_diff_index
 from numpy import ndarray
 
+__all__ = ["ndbi"]
 
 def ndbi(swir1: ndarray, nir: ndarray) -> ndarray:
     """ Normalized Difference Built-up Index (NDBI)."""

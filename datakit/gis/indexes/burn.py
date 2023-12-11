@@ -1,6 +1,7 @@
 from datakit.gis.indexes.common_calcs import safe_divide, norm_diff_index
 from numpy import ndarray
 
+__all__ = ["bai", "nbr", "nbr2"]
 
 def bai(nir: ndarray, swir: ndarray) -> ndarray:
     """ Burned Area Index (BAI).

@@ -1,6 +1,8 @@
 from datakit.gis.indexes.common_calcs import norm_diff_index
 from numpy import ndarray
 
+__all__ = ["ndwi", "mndwi", "ndmi", "ndii"]
+
 def ndwi(nir: ndarray, swir: ndarray) -> ndarray:
     """ Normalized Difference Water Index (NDWI)."""
     return norm_diff_index(nir, swir)
